@@ -1,0 +1,22 @@
+<br/>
+<div class="container">
+<h1 class="text-black list-group-item list-group-item-action list-group-item-success">
+    Search Result
+</h1>
+<br/>
+<% if @groups.empty? %>
+    <h1 class="text-black list-group-item list-group-item-action list-group-item-danger">
+    No Result Found
+    </h1>
+<% else %>
+    <% @groups.each do |group| %>
+        <a href= "groups/<%=group.id%>" class="bg-light media border border-muted pd-g mb-3">
+        <%= image_tag group.icon ,style: "width: 150px; height: 150px; border-radius: 10%;"%>
+        <div class="media-body">
+            <h6 class="text-muted"><%= group.name %></h6>
+            <p class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></p>
+        </div>
+        </a>
+    <% end %>
+<% end %>
+</div>

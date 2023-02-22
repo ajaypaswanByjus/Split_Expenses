@@ -1,0 +1,11 @@
+<div class="container">
+<h1 class="text-black list-group-item list-group-item-action list-group-item-primary text-center">
+   Edit your Expences
+</h1>
+<div class="g-bg p-3">
+  <%= render 'form', expense: @expense %>
+</div>
+
+<%= button_to 'Delete', @expense, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger form-control"%>
+
+</div>

@@ -1,0 +1,20 @@
+
+<br/> <br/>
+<div class="container">
+  <h1 class="text-black list-group-item list-group-item-action list-group-item-success">
+    List Of Groups
+  </h1>
+  <% @groups.each do |group| %>
+    <a href= "groups/<%=group.id%>" class="bg-light media border border-muted pd-g mb-3">
+      <%= image_tag group.icon ,style: "width: 150px; height: 150px; border-radius: 10%;"%>
+      <div class="media-body">
+        <h6 class="text-muted"><%= group.name %></h6>
+        <p class="text-muted"><%= group.created_at.strftime("%d-%b-%Y") %></p>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+<div class="create-button-area text-center">
+  <%= button_to 'Create New Group', new_group_path,method: :get,class:"btn btn-primary" %>
+</div>

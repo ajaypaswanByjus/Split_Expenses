@@ -1,0 +1,21 @@
+<div class = "container">
+<h1 class="text-center text-black list-group-item list-group-item-action list-group-item-success">
+    All Users Expences
+</h1>
+<div class="text-black list-group-item list-group-item-action list-group-item-info">
+    Grand Total ₹ <%= total_friends_expense(@expenses,:amount)%>
+</div>
+  <div>
+    <br/>
+    <% @users.each do |user| %>
+        <div class="list-group-item list-group-item-action list-group-item-succes">
+          <img class="select-icon" style="width:150px; height:150px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHwAAAB8CAMAAACcwCSMAAAAwFBMVEXyxA/////CnQznSkPywgDrPUi/ogD//vr+/PPBnADoR0TAmgDAoAbyyQrpRUX0zDH99t777b755rH43pD21mb0zkTyxR321mz77sT0z0388c/323/0zDn32YP54530zEf99+XpVT/vqhvtiyzxuhHshi7juA7asQ3oXjrhVzrPqA3IkBXeZjTNr0nbxofv473Ipy/YwXnv5snhz53UuWfhz5XrcjftlSnrfTDZfSnPgSTZbTLuniPNhR3Wcy7wshlN5kbsAAAGGklEQVRogb3ba1+iTBQA8BExgREkzEtaBlltlqVd1urp9v2/1TOIIsKcmXME97zb3+76Z5gzV2ZYjRxN/zjonHTbbB3t7kknOPab9F9ipH9t+UGn2zNXwdJI/tzrdgLfOhRuDTqnvR11N+IHOO0MCD4Wbw5HZwo48wBnoyG2BnC4NcbIW3+MKz4G98/Rcuqf+5Xgwz5N3vj9YWk87LM96BXP+mEp3BrvSye8pu6V+OCiBL3iLwZ74s3RPpWd082Rot3B+LBdml7xbTjxQHxcvthr3RwTcatfEb3i+0DeyfGwbKbl9At5o5PifpkGJtWZtMOT4YOqqjujm7I2J8GDquUkAgweVP3OkzAlegEfHMaO9cKbz+P+gegVn8+6HB4eqtwrnIUq3Kq2fRf0C0uBV9mvSfU+jI8PbAt9DOHDg9tCH8rxZjVjqAZvN6X46B/YQh/J8ME/sYU+KOIHbmUZfNveUvzwmZ7q4zwekn/DTYP8X8McTuxeXHY5WUZeo+FFs8klo/lpV7PGhzT66jryPMepi3Acz4uur2j8cAcnFdx9i7wVvAnHi94o9qboCU4bSN936YR/J+l+Bj+n4EsvT8fhLSn4+Ra3CLb7JrWF/kHRrRSntHFTTsevnvfwvzLe4M0zPO5+AQUXRf+vdYPGz5prnDKUuu8g7ny2jD9ofbjGKcOZe1vI9BSftgzjDouPEtwivHUtjtXNM2uFk8ZSLW7YuLSLR1aBd6rFDQOVdmYnxq1TEr6E8dkaR6WdeWoJ3Me3TqbNdoLe8wUekPp1dwK3858Ux6SdGQicVOWaTibFEWknKp3VurRt1Uv4tX8b2dClndmtsSapys1ZBNn1ejTlWV1X8b0mow3lvw6Y7HHZ7w2CbvrsmIYr6AKuSTvzmNGSnSneunjvhkHQzYDRkp3BHZyIaR43bEXamR12QsNnCtwp4qqkN08YraWxdxX+2ZLoYNqZXdaG/k4a7jXYzAX+I8NhnUYre9d4CinF0RMMbVw1wHyPvHupLdKuKt29iuTVHnF5uTVpRwtT3tqc3b71ULp8xeLMVDZuiNcHMJ3wZoq3XlnaAa0NaGdV68DgAqW6quKpLR1YKkJtfCdyPX2b2r0mehH/0NNxZNNOdK/EgSXR8znnzI5weFYXAwtxSE3wfCfrabMtjW3aiSGVOJlI8PwUdmfiqosUD4jTqHX8NnL4PQHfJL2YRpE/qsSbXvnWFk/eWi30AyQVLyaQlKmz67Kr36/J8rYwskXT2c/36gnwupg6oxcNQr58W0b1xmb7b7fsjufVp7OPe9wLuEsWDbjlkpC/lnUpu/MInlP//LaP9L6dLJcQ6R7LXnHnD3yA2beh528CxBLZZb+TqaeYPUl8Z/pxr/FtI9RvDriX7xG20NniR5/q5scfLO22iDtxSIXehlf/UfW5/FG7IeS+NfQMFA3VSGfPtVthv+QXvhPwGG8vLO0moGqNoA/FeMOf9NufynWhNhQzWv6s3fg1gTk6NiIItxdN/ZZ3SRwsOX9BbParVsT6cG5BfLvZD3/mkC8Q0Di0kIgbuf4DD7zfiAnvE6ryEPFpS7kiRuBAU+OvmI964NccJA51cc+Yz5midy0VcnxTcN2HXPfmqEwABc9/yAXb+g2QM/sH/1vL4+DH+xu7Yvuh+PEeHll7d9Xi81oRVwxuf6q0n2oyXHFUpTqdL+RHVVRDa2UVz59rclz1Qbeiit9megFXHiCoQk+7FxmuPCxTvuIzrUyC15SH8cr2N3batclx9emJcmln8/zRW9oBzDJpZ9vPeYt69HTvirfteYEiH7rdU5fZexw33ivtbF545wCuO2hNr3iez3MFrjtiTtX5A+GIufZwPa3i+SvpcH1Nd62AoPPd/hyFay5UoNOOL2SppsN1V0lQFc+zcwcKrrtEg9D5g6R1I3HN9SFdxXPjb4nrQzXNxSllxXPjtdzFqThUV8bgYY7br3Ci4XH1ZTlpxducP+pKjcWV1wQLFS/kxUt11wTjgC9IZiuec24vnp6rvSC5Cuhq6LriRYm58fA4P8DV0LUvvRTL7uISG4vHl/Bgl2I3IbkO/Difh3tcB/4f9UCVzLmpxbQAAAAASUVORK5CYII=" alt="icon">
+          <div class="float-right">
+            <h1> <%= user.email%> </h1>
+            <span class="p-3 font-weight-bold expense-a text-dark">Total: ₹ <%= total_user_expense(user,:amount)%></span>
+          </div>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<form action="<%= group_comments_path(group) %>" method="post">
+  <%= hidden_field_tag :user_id, current_user.id %>
+  <textarea name="comment[content]" rows="3" cols="113" placeholder="Add a comment"></textarea>
+  <input type="submit" value="Submit" class="btn btn-primary">
+</form>

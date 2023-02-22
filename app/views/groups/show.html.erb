@@ -1,0 +1,85 @@
+
+<div class="container">
+  <br/> <br/>
+  <h1 class="text-black list-group-item list-group-item-action list-group-item-success">
+    Welcome to <%= @group.name%> Group
+  </h1>
+  <div class="p-3">
+  <%= link_to 'Edit Group', edit_group_path(@group),class:"btn btn-info form-control mb-3" %>
+  </div>
+  <div class="p-3 mb-2 bg-white text-dark">
+    <h3> Total Expence of <%= @group.name %> is  ₹ <%= @total%> </h3>
+  </div>
+  <div class="p-3">
+    <% @group_expenses.each do |expense| %>
+      <a href= "#" class="bg-light media border border-muted pd-g mb-3">
+        
+        <%=image_tag expense.profile_photo, style: "width: 150px; height: 150px; border-radius: 10%;"  %>
+        <div class="media-body">
+          <div class="float-left">
+          <h6 class="text-muted"><%= expense.name %></h6>
+          <p class="text-muted l-h">Creator:<%= expense.user.name %></p>
+          <span class="text-muted l-h"><%= expense.created_at.strftime("%d-%b-%Y") %></span>
+          </div>
+          <div class="float-right">
+            <span class="p-3 font-weight-bold expense-a text-dark">₹ <%=expense.amount%></span>
+          </div>
+        </div>
+      </a>
+    <% end %>
+    
+    <div class = "container">
+      <div class="jumbotron">
+          <h3 class="display-4">Add a comment</h3> <br/>
+         <%= render @group.comments.order(id: :desc)%>
+        <%= render partial: 'comments/form', locals: {group: @group}%>
+      </div>
+    </div>
+
+
+<div class = "container">
+<div class="jumbotron">
+<h3 class="display-4">Split-Expenses</h3> <br/>
+<p>
+  <a class="btn btn-dark" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Split the amount equally</a>
+  <button class="btn btn-secondary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Split the amount unqually </button>
+
+</p>
+<div class="row">
+  <div class="collapse multi-collapse" id="multiCollapseExample1">
+    <div class="card card-body">
+      <%= form_tag split_group_expenses_path(@group), method: :post do %>
+        <div class="form-group" style= 'width:100%'> 
+          <%= label_tag 'amount', 'Enter Expense Amount (in ₹)', style: 'width: 970px' %>
+          <%= text_field_tag 'amount', nil, class: 'form-control ', style: 'width:100%', required: true %>    
+        </div>
+          <%= hidden_field_tag :split_type, 'Equal' %>
+          <%= submit_tag 'Split Expenses Equally', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="collapse multi-collapse" id="multiCollapseExample2">
+      <div class="card card-body">
+        <%= form_tag split_group_expenses_path(@group), method: :post do %>
+          <div class="form-group">
+            <%= label_tag 'amount', 'Enter Expense Amount (in ₹)', style: 'width: 970px' %>
+            <%= text_field_tag 'amount', nil, class: 'form-control', required: true %>
+          </div>
+          <div class="form-group unequal-splits">
+            <%= label_tag 'unequal_splits', 'Enter Split Percentages (separated by commas)', style: 'width: 970px' %>
+            <%= text_field_tag 'unequal_splits', nil, class: 'form-control' %>
+          </div>
+          <%= hidden_field_tag :split_type, 'Unequal' %>
+          <%= submit_tag 'Split Expenses Unequally', class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+  </div>
+<div>
+

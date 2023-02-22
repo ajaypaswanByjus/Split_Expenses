@@ -1,0 +1,25 @@
+
+
+
+<div class="container ">
+<br/><br/>
+<h1 class="text-black list-group-item list-group-item-action list-group-item-danger">
+    Edit Your Group
+</h1>
+<div class="card text-center">
+  <div class="card-header">
+    Important To Note
+    </div>
+      <div class="card-body">
+        <h5 class="card-title">Before adding a member to a group please create a group first </h5>
+        <%= link_to 'Create a groups', groups_path, class:"btn btn-primary text-black list-group-item list-group-item-action list-group-item-info"%>
+      </div>
+    </div>
+  </div>
+
+  <br/><br/>
+  <div class="create-button-area text-center">
+    <%= button_to 'Add Members to your expense group ', new_expense_path,method: :get,class:"btn btn-success" %>
+  </div>
+
+</div>

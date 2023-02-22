@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Split</title>
+</head>
+<body>
+  <h1>New Split</h1>
+  <%= form_with(model: [@group, @split], url: group_splits_path(@group)) do |f| %>
+    <p>
+      <%= f.label :amount %><br>
+      <%= f.text_field :amount %>
+    </p>
+    <p>
+    <%= @group %>
+    <p>
+      <%= f.submit 'Create Split' %>
+    </p>
+  <% end %>
+</body>
+</html>

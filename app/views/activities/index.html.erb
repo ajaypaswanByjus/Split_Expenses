@@ -1,0 +1,26 @@
+<div class = "container">
+<div class="jumbotron">
+  <h1>Recent Activities </h1>
+  <div class="list-group">
+    <h3>Track Your recent Activities</h3>
+    <% @activities.each do |activity| %>
+        <p class="list-group-item list-group-item-action">
+            <% if activity.parameters[:temp_key] == "Group Updated" %>
+                Group Updated by <b><%= activity.parameters[:user] %></b> on <%= activity.created_at %>.
+            <% end %> 
+            <% if activity.parameters[:temp_key] == "Group Created" %>
+                Group Created by <b><%= activity.parameters[:user] %></b> with the name <b><%= activity.parameters[:name] %></b> on <%= activity.created_at %>.
+            <% end %> 
+            <% if activity.parameters[:temp_key] == "Group Destroy" %>
+                Group Destroy by <b><%= activity.parameters[:user] %></b> with the name <b><%= activity.parameters[:name] %></b> on <%= activity.created_at %>.
+            <% end %>
+            <% if activity.parameters[:temp_key] == "Expense Created" %>
+                Expense Created by <b><%= activity.parameters[:user] %></b> with amount <b><%= activity.parameters[:amount] %></b> on <%= activity.created_at %>.
+            <% end %> 
+            <% if activity.parameters[:temp_key] == "Expense Updated" %>
+                Expence Updated by <b><%= activity.parameters[:user] %></b> with amount <b><%= activity.parameters[:amount] %></b> on <%= activity.created_at %>.
+            <% end %> 
+        </p>
+    <% end %>
+</div>
+</div>

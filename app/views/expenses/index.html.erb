@@ -1,0 +1,27 @@
+<div class="container">
+  <br/><br/><br/>
+  <div class="total-div border-bottom border-muted bg-light">
+    <h2 class = "text-black list-group-item list-group-item-action list-group-item-success"> Total My Expenses <span>    ---- </span>₹<%= @total %> <span space="10"></span></h2> 
+  </div>
+  <%= render_activities(@activities) %>
+    <% @user_expenses.each do |expense| %>
+      <a href= "<%=edit_expense_path(expense)%>" class="bg-light media border border-muted pd-g mb-3">
+        <%=image_tag expense.profile_photo, style: "width: 150px; height: 150px; border-radius: 10%;"  %>
+        <div class="media-body">
+          <div class="float-left">
+          <h6 class="text-muted"><%= expense.name %></h6>
+          <p class="text-muted l-h">Group name:<%= expense.group.name %></p>
+          <span class="text-muted l-h"><%= expense.created_at.strftime("%d-%b-%Y") %></span>
+          </div>
+          <div class="float-right">
+            <span class="p-3 font-weight-bold expense-a text-dark">Expense Amount ₹ <%=expense.amount%></span>
+          </div>
+          <br/> <br/>
+        </div>
+      </a>
+    <% end %>
+<div>
+<div class="create-button-area text-center">
+  <%= button_to 'Add a member to a group', new_expense_path,method: :get,class:"btn btn-primary" %>
+</div>
+

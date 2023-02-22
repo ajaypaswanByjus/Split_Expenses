@@ -1,0 +1,26 @@
+<%= form_with(model: group, local: true, class:"p-3") do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2 class="text-danger"><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+      <% group.errors.full_messages.each do |message| %>
+        <li class="text-danger"><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class:"text-dark pl-3" %>
+    <%= form.text_field :name, class:"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :icon, 'Upload Group Photo' %>
+    <%= form.file_field :icon, class: 'form-control' %>
+  </div>
+  
+  <div class="actions">
+    <%= form.submit "Save", class:"btn btn-success form-control"%>
+  </div>
+<% end %>

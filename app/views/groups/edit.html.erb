@@ -1,0 +1,10 @@
+<br/><br/>
+<div class="container">
+<h1 class="text-black list-group-item list-group-item-action list-group-item-success">
+    Edit Your Group
+</h1>
+<%= render 'form', group: @group %>
+<div>
+  <%= button_to 'Delete', (@group), method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger form-control"%>
+</div>
+</div>
